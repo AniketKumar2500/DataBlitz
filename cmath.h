@@ -30,6 +30,26 @@ auto plot=[&](Cell x, Cell y){
     system(command.c_str());
 };
 
+auto bar=[&](Cell x, Cell y){
+    string x_, y_;
+    x_ = "[";
+    y_ = x_;
+    for(Cell i : x.array){
+        x_ += to_string(i.fval) + ",";
+    }
+    x_.pop_back();
+    x_ += "]";
+    for(Cell i : y.array){
+        y_ += to_string(i.fval) + ",";
+    }
+    y_.pop_back();
+    y_ += "]";
+    
+    string command = "python3 -c 'import matplotlib.pyplot as plt;plt.bar(" + x_ + "," + y_ + ");plt.show()'";
+    // printf("%s\n",command.c_str());
+    system(command.c_str());
+};
+
 auto pie=[&](Cell x, Cell y){
     string x_, y_;
     x_ = "[";
